@@ -18,6 +18,7 @@
 
 
 
+
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans KR',sans-serif;background:#fff;color:#1a1a1a;font-size:15px;line-height:1.8;font-weight:300;transition:margin-right .3s;}
 body.panel-open{margin-right:320px;}
@@ -313,11 +314,12 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 </style>
 </head>
 <body>
 <div class="edit-banner">&#9999;&#65039; 편집 모드 &mdash; 텍스트 클릭으로 직접 수정 | 우측 패널에서 섹션 관리</div>
-<div class="fmt-popup" id="fmtPopup" style="top: 5245.11px; left: 657.227px;">
+<div class="fmt-popup" id="fmtPopup" style="top: 448.094px; left: 674.562px;">
   <button class="rte-btn b" onmousedown="event.preventDefault();fmtExecNow('bold')">B</button>
   <button class="rte-btn i" onmousedown="event.preventDefault();fmtExecNow('italic')">I</button>
   <button class="rte-btn u" onmousedown="event.preventDefault();fmtExecNow('underline')">U</button>
@@ -429,6 +431,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 const SKEY='pf_v6';
 
 /* ================================================================
@@ -455,6 +458,7 @@ const AUTH = {
 
   // 초기화: 저장된 인증 정보 없으면 기본값 해시 저장
   async init(){
+    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
@@ -558,7 +562,7 @@ const DEFAULT={
     {
       "id": "s-about",
       "label": "About",
-      "head": "<span style=\"font-size: 32px; font-family: SCDream, &quot;Noto Sans KR&quot;, sans-serif;\"><span style=\"font-family: SCDream9; font-size: 32px;\"><font color=\"#3a7bd5\"><span style=\"font-family: SCDream8; font-size: 32px;\">About</span></font></span></span>",
+      "head": "<span style=\"font-size: 32px; font-family: SCDream, &quot;Noto Sans KR&quot;, sans-serif;\"><span style=\"font-family: SCDream9; font-size: 32px;\"><font color=\"#3a7bd5\"><span style=\"font-family: SCDream8; font-size: 32px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 32px;\"><span style=\"font-family: SCDream8; font-size: 32px;\"><span style=\"font-family: SCDream6; font-size: 32px;\"><span style=\"font-family: SCDream8; font-size: 32px;\"><span style=\"font-family: SCDream9; font-size: 32px;\"><span style=\"font-family: SCDream8; font-size: 32px;\">About</span></span></span></span></span></span></span></font></span></span>",
       "rows": [
         {
           "id": "rwnncr9u",
@@ -615,7 +619,13 @@ const DEFAULT={
                     },
                     {
                       "id": "ds52n5a",
-                      "files": [],
+                      "files": [
+                        {
+                          "id": "f_8pxouv",
+                          "name": "위메이드넥스트 미르5 포트폴리오",
+                          "url": "files/pdf/WemadeNext Portfolio.pdf"
+                        }
+                      ],
                       "links": [],
                       "title": "위메이드넥스트 미르5 포트폴리오",
                       "badge": "",
@@ -684,9 +694,15 @@ const DEFAULT={
                   "items": [
                     {
                       "id": "d84whwa",
-                      "files": [],
+                      "files": [
+                        {
+                          "id": "f_66g3zi",
+                          "name": "던전 레벨 기획",
+                          "url": "files/excel/Cave Dungeon LevelDesign.xlsx"
+                        }
+                      ],
                       "links": [],
-                      "title": "동굴 환경 필드 레벨 기획",
+                      "title": "동굴 던전 레벨 기획",
                       "badge": "",
                       "badgeClass": "badge-blue",
                       "desc": "",
@@ -695,7 +711,13 @@ const DEFAULT={
                     },
                     {
                       "id": "dlkcy10",
-                      "files": [],
+                      "files": [
+                        {
+                          "id": "f_m0u6so",
+                          "name": "인터렉션 시스템 기획",
+                          "url": "files/excel/Interaction System.xlsx"
+                        }
+                      ],
                       "links": [],
                       "title": "인터렉션 시스템",
                       "badge": "",
@@ -706,7 +728,13 @@ const DEFAULT={
                     },
                     {
                       "id": "duvxz90",
-                      "files": [],
+                      "files": [
+                        {
+                          "id": "f_4s2pl5",
+                          "name": "기믹 시스템 기획",
+                          "url": "files/excel/Gimmick System.xlsx"
+                        }
+                      ],
                       "links": [],
                       "title": "기믹 시스템",
                       "badge": "",
@@ -2285,6 +2313,7 @@ function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function reorder(arr,si,di){ const a=arr.findIndex(x=>x.id===si),b=arr.findIndex(x=>x.id===di); if(a<0||b<0)return; const[item]=arr.splice(a,1); arr.splice(b,0,item); }
 function fileIcon(n){ const e=(n||'').split('.').pop().toLowerCase(); return {pdf:'📄',xlsx:'📊',xls:'📊',pptx:'📑',ppt:'📑',docx:'📝',doc:'📝',zip:'🗜️','7z':'🗜️',rar:'🗜️'}[e]||'📎'; }
 function toast(msg,err){ let t=document.getElementById('_toast'); if(!t){t=document.createElement('div');t.id='_toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%);background:#333;color:#fff;font-size:13px;padding:10px 20px;border-radius:6px;z-index:999;opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none;';document.body.appendChild(t);} t.textContent=msg;t.style.background=err?'#cc4444':'#333';t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',2400); }
+
 
 
 
