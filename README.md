@@ -1,4 +1,5 @@
 # 김민석 포트폴리오 — Vercel 배포 가이드
+# 파일 수정하지 말아주세요 ㅠㅠ
 
 ## 📁 폴더 구조
 
@@ -71,9 +72,3 @@ GitHub Desktop → **Commit to main** → **Push origin**
 4. **💾 저장** → **📥 HTML 저장** → 다운로드된 파일로 루트의 `index.html` 교체
 5. GitHub Desktop에서 **Commit → Push** → 자동 재배포
 
----
-
-## 🔐 초기 비밀번호
-
-- 아이디: `admin` / 비밀번호: `1234`
-- **배포 후 반드시 변경**: 관리자 패널 → 보안 탭
