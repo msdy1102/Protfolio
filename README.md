@@ -19,33 +19,6 @@ portfolio-vercel/
 
 ---
 
-## 🚀 배포 방법 (처음 1회)
-
-### 1단계 — GitHub 저장소 만들기
-
-1. https://github.com 로그인
-2. 우측 상단 **+** → **New repository** 클릭
-3. Repository name: `portfolio` (원하는 이름)
-4. **Private** 선택
-5. **Create repository** 클릭
-
-### 2단계 — GitHub Desktop으로 올리기
-
-1. [GitHub Desktop](https://desktop.github.com/) 설치 및 로그인
-2. **File → Add Local Repository** → 이 폴더 선택
-3. **Publish repository** 클릭
-
-### 3단계 — Vercel 연결
-
-1. https://vercel.com → GitHub 계정으로 로그인
-2. **Add New Project** → 저장소 선택 → **Import**
-3. **Framework Preset: Other** 확인
-4. **Root Directory: `.` (기본값)** 유지
-5. **Deploy** 클릭
-6. 완료 후 `https://xxx.vercel.app` 주소 생성 ✅
-
----
-
 ## 📎 파일 추가 방법
 
 ### ① 파일을 폴더에 복사
