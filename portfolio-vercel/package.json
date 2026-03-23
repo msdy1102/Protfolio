@@ -1,0 +1,10 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "김민석 게임 기획자 포트폴리오 사이트",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve public",
+    "build": "echo 'Static site - no build step required'"
+  }
+}

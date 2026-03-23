@@ -1,0 +1,18 @@
+{
+  "outputDirectory": "public",
+  "headers": [
+    {
+      "source": "/files/(.*)",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "inline"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
