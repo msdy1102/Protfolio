@@ -6,18 +6,15 @@
 <title>김민석 · 포트폴리오</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-
-
-
-
-
-
-
-
-
-
-
-
+@font-face{font-family:'SCDream1';src:url('/files/fonts/SCDream1.otf') format('opentype');font-weight:100;font-style:normal;font-display:swap;}
+@font-face{font-family:'SCDream2';src:url('/files/fonts/SCDream2.otf') format('opentype');font-weight:200;font-style:normal;font-display:swap;}
+@font-face{font-family:'SCDream3';src:url('/files/fonts/SCDream3.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap;}
+@font-face{font-family:'SCDream4';src:url('/files/fonts/SCDream4.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'SCDream5';src:url('/files/fonts/SCDream5.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'SCDream6';src:url('/files/fonts/SCDream6.otf') format('opentype');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'SCDream7';src:url('/files/fonts/SCDream7.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'SCDream8';src:url('/files/fonts/SCDream8.otf') format('opentype');font-weight:800;font-style:normal;font-display:swap;}
+@font-face{font-family:'SCDream9';src:url('/files/fonts/SCDream9.otf') format('opentype');font-weight:900;font-style:normal;font-display:swap;}
 
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans KR',sans-serif;background:#fff;color:#1a1a1a;font-size:15px;line-height:1.8;font-weight:300;transition:margin-right .3s;}
@@ -1239,8 +1236,219 @@ function rteExec(cmd, val){
   document.execCommand(cmd, false, val===undefined ? null : val);
   rteUpdateToolbar();
 }
+/* ═══════════════════════════════════════════════════════
+   다중 에디터 지원 — "For" 버전 헬퍼
+   toolbar 버튼의 data-ed-id 속성으로 어떤 에디터를 제어할지 결정
+   ─────────────────────────────────────────────────────── */
+
+/* 현재 포커스된 RTE 에디터 id 추적 */
+let _rteActiveEdId='rte-ed';
+document.addEventListener('focusin',e=>{
+  const ed=e.target.closest('.rte-editor');
+  if(ed&&ed.id) _rteActiveEdId=ed.id;
+});
+
+function _getEdIdFromEl(el){
+  // data-ed-id가 있으면 그것 사용, 없으면 부모 rte-bar의 data-ed-id
+  return (el&&(el.dataset.edId||(el.closest('.rte-bar')&&el.closest('.rte-bar').dataset.edId)))||_rteActiveEdId||'rte-ed';
+}
+
+function rteSaveSelFor(el){
+  // 포커스 추적도 동시에
+  const eid=_getEdIdFromEl(el);
+  _rteActiveEdId=eid;
+  rteSaveSel();
+}
+
+function rteExecNowFor(el,cmd,val){
+  const eid=_getEdIdFromEl(el);
+  const ed=document.getElementById(eid);
+  if(ed) ed.focus();
+  document.execCommand(cmd,false,val===undefined?null:val);
+  rteUpdateToolbarFor(eid);
+}
+
+function rteExecFor(el,cmd,val){
+  const eid=_getEdIdFromEl(el);
+  const ed=document.getElementById(eid);
+  if(ed){ ed.focus(); rteRestoreSel(); }
+  document.execCommand(cmd,false,val===undefined?null:val);
+  rteUpdateToolbarFor(eid);
+}
+
+/* ─── rteUpdateToolbar — 특정 에디터 기준으로 toolbar 갱신 ─── */
+function rteUpdateToolbarFor(edId){
+  const eid=edId||_rteActiveEdId||'rte-ed';
+  // 해당 edId를 가진 rte-bar 찾기
+  const bar=document.querySelector('.rte-bar[data-ed-id="'+eid+'"]');
+  const fmt=document.getElementById('fmtPopup');
+
+  ['bold','italic','underline'].forEach(cmd=>{
+    const active=document.queryCommandState(cmd);
+    if(bar){const btn=bar.querySelector('.rte-btn.'+cmd[0]);if(btn)btn.classList.toggle('rte-active',active);}
+    if(fmt){const btn=fmt.querySelector('.rte-btn.'+cmd[0]);if(btn)btn.classList.toggle('rte-active',active);}
+  });
+
+  const fontSel=bar&&bar.querySelector('.rte-font-sel');
+  if(fontSel){
+    try{
+      const ancNode=window.getSelection().anchorNode;
+      if(ancNode){
+        const fonts=['SCDream1','SCDream2','SCDream3','SCDream4','SCDream5','SCDream6','SCDream7','SCDream8','SCDream9','Noto Sans KR','serif','monospace'];
+        let ff='';
+        let cur=ancNode.nodeType===3?ancNode.parentElement:ancNode;
+        const ed=document.getElementById(eid);
+        while(cur&&cur!==ed&&cur!==document.body){
+          if(cur.style&&cur.style.fontFamily){ff=cur.style.fontFamily.replace(/['"]/g,'').trim();break;}
+          if(cur.tagName==='FONT'&&cur.getAttribute('face')){ff=cur.getAttribute('face');break;}
+          cur=cur.parentElement;
+        }
+        const matched=fonts.find(f=>ff.includes(f));
+        if(matched) fontSel.value=matched;
+      }
+    }catch(e){}
+  }
+
+  const sfx=eid;
+  const sizeInp=bar&&bar.querySelector('#rte-size-inp-'+sfx);
+  const sizeSel=bar&&bar.querySelector('#rte-size-sel-'+sfx);
+  if(sizeInp){
+    try{
+      const node=window.getSelection().anchorNode;
+      if(node){
+        const el2=node.nodeType===3?node.parentElement:node;
+        const fs=window.getComputedStyle(el2).fontSize||'';
+        const px=parseInt(fs);
+        if(px&&document.activeElement!==sizeInp){
+          sizeInp.value=px;
+          if(sizeSel){const opt=[...sizeSel.options].find(o=>parseInt(o.value)===px);sizeSel.value=opt?px:'';}
+        }
+      }
+    }catch(e){}
+  }
+}
+
+/* ─── 글자 크기 — For 버전 (size input의 data-ed-id 사용) ─── */
+function rteSetFontSizeFor(inputEl,val){
+  const eid=(inputEl&&inputEl.dataset.edId)||_rteActiveEdId||'rte-ed';
+  _rteSetFontSizeToEd(eid,val);
+}
+
+function _rteSetFontSizeToEd(eid,val){
+  const px=parseInt(val);
+  if(!px||px<6||px>200) return;
+  const ed=document.getElementById(eid);
+  if(ed) ed.focus();
+  rteRestoreSel();
+  const sel=window.getSelection();
+  if(!sel||sel.rangeCount===0) return;
+  const range=sel.getRangeAt(0);
+
+  let existingFF='';
+  try{
+    const anchorEl=sel.anchorNode.nodeType===3?sel.anchorNode.parentElement:sel.anchorNode;
+    existingFF=window.getComputedStyle(anchorEl).fontFamily||'';
+  }catch(e){}
+
+  if(range.collapsed){
+    document.execCommand('fontSize',false,'7');
+    if(ed) ed.querySelectorAll('font[size="7"]').forEach(f=>{
+      const span=document.createElement('span');
+      span.style.fontSize=px+'px';
+      if(f.face) span.style.fontFamily=f.face;
+      else if(existingFF) span.style.fontFamily=existingFF;
+      span.innerHTML=f.innerHTML;
+      f.parentNode.replaceChild(span,f);
+    });
+  } else {
+    // 선택 범위 내 기존 font-size span 모두 제거 후 단일 span으로 감쌈
+    _applyStyleToRange(range,'fontSize',px+'px');
+  }
+
+  const sfx=eid;
+  const bar=document.querySelector('.rte-bar[data-ed-id="'+eid+'"]');
+  const inp=bar&&bar.querySelector('#rte-size-inp-'+sfx);
+  if(inp) inp.value=px;
+  const sizeSel=bar&&bar.querySelector('#rte-size-sel-'+sfx);
+  if(sizeSel){const opt=[...sizeSel.options].find(o=>parseInt(o.value)===px);sizeSel.value=opt?px:'';}
+  rteUpdateToolbarFor(eid);
+}
+
+function rteApplySizePresetFor(selEl){
+  const val=selEl.value; if(!val) return;
+  const eid=_getEdIdFromEl(selEl);
+  const bar=document.querySelector('.rte-bar[data-ed-id="'+eid+'"]');
+  const inp=bar&&bar.querySelector('#rte-size-inp-'+eid);
+  if(inp) inp.value=val;
+  _rteSetFontSizeToEd(eid,val);
+}
+
+/* ─── 글꼴 — For 버전 ─── */
+function rteApplyFontFor(selEl){
+  const fontVal=selEl.value; if(!fontVal) return;
+  const eid=_getEdIdFromEl(selEl);
+  const ed=document.getElementById(eid);
+  if(!ed) return;
+  ed.focus();
+  rteRestoreSel();
+  const sel=window.getSelection();
+  if(!sel||sel.rangeCount===0) return;
+  const range=sel.getRangeAt(0);
+
+  if(range.collapsed){
+    document.execCommand('fontName',false,fontVal);
+  } else {
+    _applyStyleToRange(range,'fontFamily',fontVal);
+  }
+  rteUpdateToolbarFor(eid);
+}
+
+/* ════════════════════════════════════════════════════════
+   핵심: _applyStyleToRange
+   선택 범위(range) 안의 모든 텍스트 노드를 순회하여
+   기존 style 속성(font-size / font-family)을 덮어쓰는 방식.
+   → 혼합 서식 드래그 시 일괄 적용 보장
+   ──────────────────────────────────────────────────────── */
+function _applyStyleToRange(range, cssProp, cssVal){
+  // 1. 선택 범위를 DocumentFragment로 추출
+  const fragment = range.extractContents();
+
+  // 2. fragment 안의 모든 요소에서 해당 style 속성을 제거 (기존 중첩 제거)
+  _stripStyleProp(fragment, cssProp);
+
+  // 3. 새 span으로 통째로 감싸서 원하는 스타일 적용
+  const span = document.createElement('span');
+  span.style[cssProp] = cssVal;
+  span.appendChild(fragment);
+
+  // 4. 삽입 후 선택 복원
+  range.insertNode(span);
+  range.selectNodeContents(span);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+
+/* fragment 내 모든 element의 특정 style 속성 제거 (재귀) */
+function _stripStyleProp(node, cssProp){
+  if(node.nodeType===1){
+    // style 속성 제거
+    if(node.style && node.style[cssProp]) node.style[cssProp]='';
+    // font 태그의 face/size 처리
+    if(node.tagName==='FONT'){
+      if(cssProp==='fontFamily') node.removeAttribute('face');
+      if(cssProp==='fontSize') node.removeAttribute('size');
+    }
+  }
+  node.childNodes.forEach(child=>_stripStyleProp(child,cssProp));
+}
+
+
 /* B/I/U 버튼 활성 상태 + 현재 글꼴·크기를 UI에 반영 */
 function rteUpdateToolbar(){
+  rteUpdateToolbarFor(_rteActiveEdId||'rte-ed');
+}
+function _rteUpdateToolbarLegacy(){
   const bar=document.querySelector('.rte-bar');
   const fmt=document.getElementById('fmtPopup');
 
@@ -1302,10 +1510,14 @@ function rteUpdateToolbar(){
   }
 }
 
-function rteBarHtml(){ return '<div class="rte-bar">'
-  // ── 글꼴 선택: onchange에서 this.value를 리셋하지 않고 유지
-  //    커서 이동 시 rteUpdateToolbar()가 현재 글꼴을 드롭다운에 반영
-  +'<select class="rte-sel" id="rte-font-sel" style="max-width:110px;" onmousedown="rteSaveSel();" onchange="rteApplyFont(this)">'
+function rteBarHtml(edId){
+  // edId: 이 툴바가 제어할 contenteditable 요소의 id (기본값 'rte-ed')
+  // kv 블록처럼 에디터가 2개일 때 각각 독립적으로 동작하게 함
+  const eid=edId||'rte-ed';
+  const sfx=eid; // id suffix로 사용해 중복 ID 방지
+  return '<div class="rte-bar" data-ed-id="'+eid+'">'
+  // ── 글꼴 선택
+  +'<select class="rte-sel rte-font-sel" id="rte-font-sel-'+sfx+'" style="max-width:110px;" onmousedown="rteSaveSelFor(this);" onchange="rteApplyFontFor(this)">'
   +'<option value="">글꼴</option>'
   +'<option value="SCDream1">S-Core 1 (Thin)</option>'
   +'<option value="SCDream2">S-Core 2 (ExLight)</option>'
@@ -1321,10 +1533,9 @@ function rteBarHtml(){ return '<div class="rte-bar">'
   +'<option value="monospace">고정폭</option>'
   +'</select>'
   +'<span class="rte-sep"></span>'
-  // ── 글자 크기: 드롭다운(프리셋) + 숫자 입력칸 복합 UI
-  //    드롭다운 선택 → 입력칸에도 값 반영, 직접 입력도 가능
+  // ── 글자 크기
   +'<span class="rte-size-wrap">'
-  +'<select class="rte-size-sel" id="rte-size-sel" title="크기 프리셋" onmousedown="rteSaveSel();" onchange="rteApplySizePreset(this)">'
+  +'<select class="rte-size-sel" id="rte-size-sel-'+sfx+'" title="크기 프리셋" onmousedown="rteSaveSelFor(this);" onchange="rteApplySizePresetFor(this)">'
   +'<option value="">글자</option>'
   +'<option value="10">10px</option>'
   +'<option value="12">12px</option>'
@@ -1642,7 +1853,7 @@ function selectImg(wrap){
   wrap.classList.add('selected');
 }
 function openRteModal(title,init,onSave){
-  const body='<div class="rte-wrap">'+rteBarHtml()+'<div id="rte-ed" class="rte-editor" contenteditable="true">'+init+'</div></div>';
+  const body='<div class="rte-wrap">'+rteBarHtml('rte-ed')+'<div id="rte-ed" class="rte-editor" contenteditable="true">'+init+'</div></div>';
   openModal(title,body,()=>{
     const ed=document.getElementById('rte-ed');
     if(!ed){ onSave(''); return; }
@@ -1658,7 +1869,10 @@ function openRteModal(title,init,onSave){
   setTimeout(()=>{
     const ed=document.getElementById('rte-ed');
     if(ed){
+      _rteActiveEdId='rte-ed';
       ed.focus();
+      ed.addEventListener('keyup',()=>rteUpdateToolbarFor('rte-ed'));
+      ed.addEventListener('mouseup',()=>rteUpdateToolbarFor('rte-ed'));
       try{ const r=document.createRange(); r.selectNodeContents(ed); r.collapse(false); const s=window.getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
       initImgResize(ed);
     }
@@ -1775,12 +1989,26 @@ function editKvItem(secId,rowId,ddId,blId,rid){
   const item=bl.rows.find(r=>r.id===rid);
   if(!item){ toast('항목을 찾을 수 없습니다',true); return; }
   window._kvItem=item;
-  const body='<div class="form-row"><label>키 (왼쪽)</label><div class="rte-wrap">'+rteBarHtml()+'<div id="kv-k-ed" class="rte-editor" style="min-height:44px;" contenteditable="true">'+(item.key||'')+'</div></div></div>'
-    +'<div class="form-row"><label>값 (오른쪽)</label><div class="rte-wrap">'+rteBarHtml()+'<div id="kv-v-ed" class="rte-editor" style="min-height:44px;" contenteditable="true">'+(item.val||'')+'</div></div></div>'
+  const body='<div class="form-row"><label>키 (왼쪽)</label><div class="rte-wrap">'+rteBarHtml('kv-k-ed')+'<div id="kv-k-ed" class="rte-editor" style="min-height:44px;" contenteditable="true">'+(item.key||'')+'</div></div></div>'
+    +'<div class="form-row"><label>값 (오른쪽)</label><div class="rte-wrap">'+rteBarHtml('kv-v-ed')+'<div id="kv-v-ed" class="rte-editor" style="min-height:44px;" contenteditable="true">'+(item.val||'')+'</div></div></div>'
     // [FIX BUG-4] 체크박스 라벨을 "링크" 로 변경 (이메일/URL 모두 지원하므로)
     +'<div class="form-row" style="display:flex;gap:8px;align-items:center;"><input type="checkbox" id="m-link" '+(item.isLink?'checked':'')+'><label for="m-link" style="display:inline;font-size:13px;">링크 (이메일 or URL)</label></div>'
     +'<button class="mbtn cancel" style="margin-top:8px;border-color:#f0c0c0;color:#cc4444;" onclick="askConfirm(\'이 행을 삭제할까요?\',()=>{const list=getBlkList(\''+secId+'\',\''+rowId+'\',\''+(ddId||'')+'\');if(!list)return;const bl=list.find(b=>b.id===\''+blId+'\');if(!bl)return;bl.rows=bl.rows.filter(r=>r.id!==\''+rid+'\');render();closeModal();})">🗑 행 삭제</button>';
-  openModal('행 편집',body,()=>{ item.key=document.getElementById('kv-k-ed').innerHTML; item.val=document.getElementById('kv-v-ed').innerHTML; item.isLink=document.getElementById('m-link').checked; render(); });
+  openModal('행 편집',body,()=>{
+    const cleanEd=(id)=>{ const el=document.getElementById(id); if(!el) return ''; const c=el.cloneNode(true); c.querySelectorAll('.rh,.rh-label').forEach(x=>x.remove()); return c.innerHTML; };
+    item.key=cleanEd('kv-k-ed'); item.val=cleanEd('kv-v-ed'); item.isLink=document.getElementById('m-link').checked; render();
+  });
+  // kv 에디터 초기화 — setTimeout으로 DOM 삽입 후 실행
+  setTimeout(()=>{
+    ['kv-k-ed','kv-v-ed'].forEach(id=>{
+      const ed=document.getElementById(id); if(!ed) return;
+      ed.addEventListener('focus',()=>{ window._rteActiveEdId=id; });
+      ed.addEventListener('keyup',()=>rteUpdateToolbarFor(id));
+      ed.addEventListener('mouseup',()=>rteUpdateToolbarFor(id));
+      initImgResize(ed);
+    });
+    const first=document.getElementById('kv-k-ed'); if(first){ first.focus(); try{ const r=document.createRange(); r.selectNodeContents(first); r.collapse(false); const s=window.getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){} }
+  }, 80);
 }
 // [FIX BUG-1] addKvItem: getBlkList/bl null 가드
 function addKvItem(secId,rowId,ddId,blId){
