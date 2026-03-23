@@ -18,6 +18,7 @@
 
 
 
+
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans KR',sans-serif;background:#fff;color:#1a1a1a;font-size:15px;line-height:1.8;font-weight:300;transition:margin-right .3s;}
 body.panel-open{margin-right:320px;}
@@ -313,6 +314,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 </style>
 </head>
 <body>
@@ -429,6 +431,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 const SKEY='pf_v6';
 
 /* ================================================================
@@ -455,6 +458,7 @@ const AUTH = {
 
   // 초기화: 저장된 인증 정보 없으면 기본값 해시 저장
   async init(){
+    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
@@ -550,15 +554,15 @@ const AUTH = {
 const DEFAULT={
   "header": {
     "name": "김민석",
-    "sub": "",
-    "phone": "01041466790",
-    "email": "zntk6602@naver.com"
+    "sub": "게임 콘텐츠 / 레벨 기획자 · 3년차",
+    "phone": "",
+    "email": ""
   },
   "sections": [
     {
       "id": "s-about",
       "label": "About",
-      "head": "<span style=\"font-size: 32px; font-family: SCDream, &quot;Noto Sans KR&quot;, sans-serif;\"><span style=\"font-family: SCDream9; font-size: 32px;\"><font color=\"#3a7bd5\"><span style=\"font-family: SCDream8; font-size: 32px;\">About</span></font></span></span>",
+      "head": "<span style=\"font-size: 32px; font-family: SCDream, &quot;Noto Sans KR&quot;, sans-serif;\"><span style=\"font-family: SCDream9; font-size: 32px;\"><font color=\"#3a7bd5\"><span style=\"font-family: SCDream8; font-size: 32px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 32px;\">About</span></span></font></span></span>",
       "rows": [
         {
           "id": "rwnncr9u",
@@ -569,7 +573,7 @@ const DEFAULT={
           "items": [
             {
               "id": "dd709e8r",
-              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\">소개</span>",
+              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 24px;\">소개</span></span>",
               "blocks": [
                 {
                   "id": "blia4jqe",
@@ -577,7 +581,7 @@ const DEFAULT={
                   "dropdown": false,
                   "ddTitle": "",
                   "ddOpen": false,
-                  "html": "<span style=\"font-family: SCDream5; font-size: 18px;\">2년 N개월차 주니어 레벨 기획자</span>"
+                  "html": "<span style=\"font-family: SCDream5; font-size: 18px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\">2년 N개월차 주니어 레벨 기획자</span></span>"
                 },
                 {
                   "id": "bln3fvh3",
@@ -585,7 +589,7 @@ const DEFAULT={
                   "dropdown": false,
                   "ddTitle": "",
                   "ddOpen": false,
-                  "html": "<div><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream4;\">[담당 직군]</span></span></div><div></div><span style=\"font-family: SCDream3;\"><span style=\"font-size: 12px;\"><div></div><span style=\"font-size: 14px;\"><div><font color=\"#888888\">필드, 던전 레벨 기획</font></div><div><font color=\"#888888\">필드 몬스터 배치 기획</font></div><div><font color=\"#888888\">레벨 시스템 기획</font></div></span><div></div></span></span><div></div><div><br></div><div><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream5;\"><span style=\"font-family: SCDream4;\">[보유 경험]</span></span></span></div><div></div><span style=\"font-family: SCDream2;\"><span style=\"font-family: SCDream3;\"><div><font color=\"#888888\">MMORPG 신규 프로젝트에서 경험 보유</font></div><div><font color=\"#888888\">게임 방향성이 변경되며 액션RPG 경험으로 확장</font></div><div><font color=\"#888888\">Unity개인 프로젝트 경험 보유</font></div></span></span><div></div><div><br></div><div><span style=\"font-size: 12px;\"><span style=\"font-size: 14px;\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\">[성향]</span></span></span></span></div><div></div><span style=\"font-family: SCDream3;\"><div><font color=\"#888888\">작업 효율화를 위해서는 새로운 것도 적극적 도입</font></div><div><font color=\"#888888\">필요에 따라 뭐든지 거부감 없이 빠르게 익혀서 사용</font></div><div><font color=\"#888888\">다함께 맞춰가는 것에 중점을 두며 타 직군과 원활한 소통</font></div><div><font color=\"#888888\">텍스트 보단 시각화된 문서 작성을 선호</font></div></span><div></div><div><br></div><div><div><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream5;\"><span style=\"font-family: SCDream4;\">[스킬]</span></span></span></div><div></div><font color=\"#888888\" face=\"SCDream3\">문서 : Excel, Word, PPT, Google Sheets, Notion</font></div><div><font color=\"#888888\" face=\"SCDream3\">에디터 : Unity, Unreal</font></div><div><font color=\"#888888\" face=\"SCDream3\">일정관리 : Redmine, Hansoft</font></div><div><font color=\"#888888\" face=\"SCDream3\">협업 : 각 기획 경험으로 아트팀, 서버&amp;클라팀과 긴밀히 협업</font></div><div><font color=\"#888888\" face=\"SCDream3\">AI : Claude, Gemini, Midjourney</font></div>"
+                  "html": "<div><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream4;\"></span></span></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\"><div><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream4;\"></span></span></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\"><div><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream4;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">[담당 직군]</span></span></span></div><div></div><span style=\"font-family: SCDream3;\"><span style=\"font-size: 12px;\"><div></div><span style=\"font-size: 14px;\"><div><font color=\"#888888\"></font></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\"><div><font color=\"#888888\">필드, 던전 레벨 기획</font></div><div><font color=\"#888888\">필드 몬스터 배치 기획</font></div><div><font color=\"#888888\">레벨 시스템 기획</font></div></span><div><font color=\"#888888\"></font></div></span><div></div></span></span><div></div><div><br></div><div><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream5;\"><span style=\"font-family: SCDream4;\"></span></span></span></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\"><div><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream5;\"><span style=\"font-family: SCDream4;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">[보유 경험]</span></span></span></span></div><div></div><span style=\"font-family: SCDream2;\"><span style=\"font-family: SCDream3;\"><div><font color=\"#888888\"></font></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\"><div><font color=\"#888888\">MMORPG 신규 프로젝트에서 경험 보유</font></div><div><font color=\"#888888\">게임 방향성이 변경되며 액션RPG 경험으로 확장</font></div><div><font color=\"#888888\">Unity개인 프로젝트 경험 보유</font></div></span><div><font color=\"#888888\"></font></div></span></span></span><span style=\"font-family: SCDream2;\"><span style=\"font-family: SCDream3;\"><div><font color=\"#888888\"></font></div></span></span><div></div><div><br></div><div><span style=\"font-size: 12px;\"><span style=\"font-size: 14px;\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">[성향]</span></span></span></span></span></div><div></div><span style=\"font-family: SCDream3;\"><div><font color=\"#888888\"></font></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\"><div><font color=\"#888888\">작업 효율화를 위해서는 새로운 것도 적극적 도입</font></div><div><font color=\"#888888\">필요에 따라 뭐든지 거부감 없이 빠르게 익혀서 사용</font></div><div><font color=\"#888888\">다함께 맞춰가는 것에 중점을 두며 타 직군과 원활한 소통</font></div><div><font color=\"#888888\">텍스트 보단 시각화된 문서 작성을 선호</font></div></span><div><font color=\"#888888\"></font></div></span><div></div><div><br></div><div><div><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream5;\"><span style=\"font-family: SCDream4;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">[스킬]</span></span></span></span></div><div></div><font color=\"#888888\" face=\"SCDream3\"></font></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\"><div><font color=\"#888888\" face=\"SCDream3\"></font></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\"><div><font color=\"#888888\" face=\"SCDream3\"></font></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\"><div><font color=\"#888888\" face=\"SCDream3\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">문서 : Excel, Word, PPT, Google Sheets, Notion</span></font></div><div><font color=\"#888888\" face=\"SCDream3\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">에디터 : Unity, Unreal</span></font></div><div><font color=\"#888888\" face=\"SCDream3\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">일정관리 : Redmine, Hansoft</span></font></div></span><div><font color=\"#888888\" face=\"SCDream3\"></font></div><div><font color=\"#888888\" face=\"SCDream3\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">협업 : 각 기획 경험으로 아트팀, 서버&amp;클라팀과 긴밀히 협업</span></font></div><div><font color=\"#888888\" face=\"SCDream3\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">AI : Claude, Gemini, Midjourney</span></font></div></span><div><font color=\"#888888\" face=\"SCDream3\"></font></div></span><div><font color=\"#888888\" face=\"SCDream3\"></font></div></span><div><font color=\"#888888\" face=\"SCDream3\"></font></div></span><div><font color=\"#888888\" face=\"SCDream3\"></font></div>"
                 },
                 {
                   "id": "bl5oldt0",
@@ -593,7 +597,7 @@ const DEFAULT={
                   "dropdown": false,
                   "ddTitle": "",
                   "ddOpen": false,
-                  "html": "<span style=\"font-family: SCDream5; font-size: 18px;\">종합 포트폴리오</span>"
+                  "html": "<span style=\"font-family: SCDream5; font-size: 18px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\">종합 포트폴리오</span></span>"
                 },
                 {
                   "id": "bl2dfe6j",
@@ -657,7 +661,7 @@ const DEFAULT={
           "items": [
             {
               "id": "dddm5vsq",
-              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\">위메이드넥스트(WemadeNext) 미르5 기획팀 [ 2023 ~ ]</span>",
+              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 24px;\">위메이드넥스트(WemadeNext) 미르5 기획팀 [ 2023 ~ ]</span></span>",
               "blocks": [
                 {
                   "id": "blto4xfa",
@@ -665,7 +669,7 @@ const DEFAULT={
                   "dropdown": false,
                   "ddTitle": "",
                   "ddOpen": false,
-                  "html": "<span style=\"font-size: 18px;\"><font face=\"SCDream5\">위메이드넥스트 미르5 기획팀</font></span><div><span style=\"font-size: 18px;\"><font face=\"SCDream5\">미르5 - PC MMORPG 게임</font></span></div>"
+                  "html": "<span style=\"font-size: 18px;\"><font face=\"SCDream5\"></font></span><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\"><span style=\"font-size: 18px;\"><font face=\"SCDream5\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\">위메이드넥스트 미르5 기획팀</span></font></span><div><span style=\"font-size: 18px;\"><font face=\"SCDream5\"><span style=\"font-family: SCDream9; font-size: 18px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\">미르5 - PC MMORPG 게임</span></span></font></span></div></span><div><span style=\"font-size: 18px;\"><font face=\"SCDream5\"></font></span></div>"
                 },
                 {
                   "id": "bl4yrxrb",
@@ -679,7 +683,7 @@ const DEFAULT={
                   "id": "blmvu745",
                   "type": "docs",
                   "dropdown": true,
-                  "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\">해당 프로젝트 포트폴리오</span>",
+                  "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\">해당 프로젝트 포트폴리오</span></span>",
                   "ddOpen": false,
                   "items": [
                     {
@@ -729,15 +733,15 @@ const DEFAULT={
                   "id": "bltfgtw2",
                   "type": "text",
                   "dropdown": true,
-                  "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\">해당 프로젝트 업무 이력</span>",
+                  "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\">해당 프로젝트 업무 이력</span></span>",
                   "ddOpen": false,
-                  "html": "<font face=\"SCDream5\"><span style=\"font-size: 18px;\"><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream4;\">[레벨 기획]</span></span></span></font><div><font face=\"SCDream3\" color=\"#888888\">ㄴ MMORPG</font><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 사막&amp;황무지 환경 필드 레벨 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 다수 유저가 참여하는 스케줄러 던전 레벨 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 4인 참여 던전 레벨 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 필드 몬스터 배치 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 액션RPG</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 동굴 환경 필드 레벨 기획</font></div></div><div><font face=\"SCDream3\" color=\"#888888\"><br></font></div><div><font face=\"SCDream3\"><font color=\"#1a1a1a\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\">[시스템 기획]</span></span></font></font></div><div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ MMORPG</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 인터렉션 시스템</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 기믹 시스템</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 룩앳 시스템</font></div></div><div><font face=\"SCDream3\" color=\"#888888\"><br></font></div><div><font face=\"SCDream3\"><font color=\"#1a1a1a\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\">[기타 작업]</span></span></font></font></div><div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 편의성 툴 제작 지원 (콜리전 에디터Tool)</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 몬스터 배치 및 데이터 작업</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ Prob AnimBP 제작</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 리소스 발주 문서 작성 및 리스트 관리</font></div></div><div><font color=\"#888888\" face=\"SCDream3\">ㄴ AI R&amp;D (발주 문서 자동화, 초안 작성, 레벨Tool 제작)</font></div>"
+                  "html": "<font face=\"SCDream5\"><span style=\"font-size: 18px;\"><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream4;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">[레벨 기획]</span></span></span></span></font><div><font face=\"SCDream3\" color=\"#888888\"></font><span style=\"font-size: 14px; font-family: &quot;Noto Sans KR&quot;;\"><font face=\"SCDream3\" color=\"#888888\"></font><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\"><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">ㄴ MMORPG</span></font><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">&nbsp; &nbsp; - 사막&amp;황무지 환경 필드 레벨 기획</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">&nbsp; &nbsp; - 다수 유저가 참여하는 스케줄러 던전 레벨 기획</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">&nbsp; &nbsp; - 4인 참여 던전 레벨 기획</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">&nbsp; &nbsp; - 필드 몬스터 배치 기획</span></font></div></span><div><font face=\"SCDream3\" color=\"#888888\"></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">ㄴ 액션RPG</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">&nbsp; &nbsp; - 동굴 환경 필드 레벨 기획</span></font></div></span><div><font face=\"SCDream3\" color=\"#888888\"></font></div></div><div><font face=\"SCDream3\" color=\"#888888\"><br></font></div><div><font face=\"SCDream3\"><font color=\"#1a1a1a\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">[시스템 기획]</span></span></span></font></font></div><div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">ㄴ MMORPG</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">&nbsp; &nbsp; - 인터렉션 시스템</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">&nbsp; &nbsp; - 기믹 시스템</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: SCDream9; font-size: 14px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">&nbsp; &nbsp; - 룩앳 시스템</span></span></font></div></div><div><font face=\"SCDream3\" color=\"#888888\"><br></font></div><div><font face=\"SCDream3\"><font color=\"#1a1a1a\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 16px;\">[기타 작업]</span></span></span></font></font></div><div><div><font face=\"SCDream3\" color=\"#888888\"></font></div></div><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\"><div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">ㄴ 편의성 툴 제작 지원 (콜리전 에디터Tool)</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">ㄴ 몬스터 배치 및 데이터 작업</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">ㄴ Prob AnimBP 제작</span></font></div><div><font face=\"SCDream3\" color=\"#888888\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">ㄴ 리소스 발주 문서 작성 및 리스트 관리</span></font></div></div><div><font color=\"#888888\" face=\"SCDream3\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 14px;\">ㄴ AI R&amp;D (발주 문서 자동화, 초안 작성, 레벨Tool 제작)</span></font></div></span><div><font color=\"#888888\" face=\"SCDream3\"></font></div>"
                 }
               ]
             },
             {
               "id": "ddelege5",
-              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\">게임 기획 지망생 [ 2023 이전 ]</span>",
+              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 24px;\">게임 기획 지망생 [ 2023 이전 ]</span></span>",
               "blocks": [
                 {
                   "id": "blge93rk",
@@ -745,13 +749,13 @@ const DEFAULT={
                   "dropdown": false,
                   "ddTitle": "",
                   "ddOpen": false,
-                  "html": "<span style=\"font-family: SCDream5; font-size: 18px;\">한국IT 직업전문학교 졸업 ( 2018 ~ 2023 )</span>"
+                  "html": "<span style=\"font-family: SCDream5; font-size: 18px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\">한국IT 직업전문학교 졸업 ( 2018 ~ 2023 )</span></span>"
                 },
                 {
                   "id": "bl2bwy2j",
                   "type": "docs",
                   "dropdown": true,
-                  "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\">재학중 작성한 포트폴리오</span>",
+                  "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\">재학중 작성한 포트폴리오</span></span>",
                   "ddOpen": true,
                   "items": [
                     {
@@ -812,7 +816,7 @@ const DEFAULT={
                   "id": "bljzsdda",
                   "type": "docs",
                   "dropdown": true,
-                  "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\">재학중 진행한 프로젝트</span>",
+                  "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 18px;\">재학중 진행한 프로젝트</span></span>",
                   "ddOpen": false,
                   "items": [
                     {
@@ -832,7 +836,7 @@ const DEFAULT={
             },
             {
               "id": "ddzg2r78",
-              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\">개인 R&amp;D [ 2021 ~ ]</span>",
+              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 24px;\">개인 R&amp;D [ 2021 ~ ]</span></span>",
               "blocks": []
             }
           ]
@@ -842,7 +846,7 @@ const DEFAULT={
     {
       "id": "s-contact",
       "label": "Contact",
-      "head": "<span style=\"color: rgb(58, 123, 213); font-family: SCDream8; font-size: 32px;\">Contact</span>",
+      "head": "<span style=\"color: rgb(58, 123, 213); font-family: SCDream8; font-size: 32px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 32px;\">Contact</span></span>",
       "rows": [
         {
           "id": "rw5",
@@ -880,7 +884,7 @@ const DEFAULT={
               ]
             }
           ],
-          "title": "<span style=\"font-family: SCDream6; font-size: 24px;\">연락처</span>"
+          "title": "<span style=\"font-family: SCDream6; font-size: 24px;\"><span style=\"font-family: &quot;Noto Sans KR&quot;; font-size: 24px;\">연락처</span></span>"
         }
       ]
     }
@@ -2307,6 +2311,7 @@ function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function reorder(arr,si,di){ const a=arr.findIndex(x=>x.id===si),b=arr.findIndex(x=>x.id===di); if(a<0||b<0)return; const[item]=arr.splice(a,1); arr.splice(b,0,item); }
 function fileIcon(n){ const e=(n||'').split('.').pop().toLowerCase(); return {pdf:'📄',xlsx:'📊',xls:'📊',pptx:'📑',ppt:'📑',docx:'📝',doc:'📝',zip:'🗜️','7z':'🗜️',rar:'🗜️'}[e]||'📎'; }
 function toast(msg,err){ let t=document.getElementById('_toast'); if(!t){t=document.createElement('div');t.id='_toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%);background:#333;color:#fff;font-size:13px;padding:10px 20px;border-radius:6px;z-index:999;opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none;';document.body.appendChild(t);} t.textContent=msg;t.style.background=err?'#cc4444':'#333';t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',2400); }
+
 
 
 
