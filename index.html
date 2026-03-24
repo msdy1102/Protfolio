@@ -10,6 +10,7 @@
 
 
 
+
 @font-face{font-family:'SCDream1';src:url('/files/fonts/SCDream1.otf') format('opentype');font-weight:100;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream2';src:url('/files/fonts/SCDream2.otf') format('opentype');font-weight:200;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream3';src:url('/files/fonts/SCDream3.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap;}
@@ -320,6 +321,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 </style>
 </head>
 <body>
@@ -349,7 +351,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
     <label>아이디</label><input type="text" id="loginId" placeholder="admin">
     <label>비밀번호</label><input type="password" id="loginPw" onkeydown="if(event.key==='Enter')doLogin()">
     <button class="login-btn" onclick="doLogin()">로그인</button>
-    <div class="login-err" id="loginErr" style="">비밀번호가 틀렸습니다. (3회 남음)</div>
+    <div class="login-err" id="loginErr" style="">비밀번호가 틀렸습니다. (4회 남음)</div>
   </div>
 </div>
 <div class="modal-bg" id="editModal">
@@ -400,13 +402,13 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
   </div>
   <div class="psec panel-body" id="pt-sec">
     <div style="font-size:12px;font-weight:500;margin-bottom:12px;">비밀번호 변경</div>
-    <div id="pw-default-warn" style="display: block; padding: 8px 10px; background: rgb(255, 243, 205); border: 1px solid rgb(255, 193, 7); border-radius: 5px; font-size: 11px; color: rgb(133, 100, 4); margin-bottom: 12px; line-height: 1.6;">
+    <div id="pw-default-warn" style="display: none; padding: 8px 10px; background: rgb(255, 243, 205); border: 1px solid rgb(255, 193, 7); border-radius: 5px; font-size: 11px; color: rgb(133, 100, 4); margin-bottom: 12px; line-height: 1.6;">
       ⚠️ <strong>기본 비밀번호 사용 중</strong><br>반드시 변경하세요 (admin / 1234)
     </div>
     <div class="form-row"><label>현재 비밀번호</label><input type="password" id="sec-old" placeholder="현재 비밀번호"></div>
     <div class="form-row"><label>새 비밀번호</label><input type="password" id="sec-new" placeholder="4자 이상"></div>
     <div class="form-row"><label>새 비밀번호 확인</label><input type="password" id="sec-new2" placeholder="새 비밀번호 재입력" onkeydown="if(event.key==='Enter')changePw()"></div>
-    <div id="sec-msg" style="font-size: 12px; margin-bottom: 10px; display: none; color: rgb(42, 154, 58);">비밀번호가 변경됐습니다.</div>
+    <div id="sec-msg" style="font-size: 12px; margin-bottom: 10px; display: block; color: rgb(42, 154, 58);">비밀번호가 변경됐습니다.</div>
     <button class="login-btn" style="padding:9px;" onclick="changePw()">변경</button>
     <div style="margin-top:20px;padding-top:16px;border-top:1px solid #f0f0f0;">
       <div style="font-size:12px;font-weight:500;margin-bottom:8px;">세션</div>
@@ -433,6 +435,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 <main id="main"></main>
 <footer><div class="wrap" id="footer-txt"></div></footer>
 <script id="__main_js__">
+
 
 
 
@@ -471,7 +474,7 @@ const AUTH = {
       localStorage.setItem(this.ID_KEY, this.DEFAULT_ID);
     }
     if(!localStorage.getItem(this.PW_KEY)){
-      localStorage.setItem(this.PW_KEY, await this.hash(this.DEFAULT_PW));
+      localStorage.setItem(this.PW_KEY, 'c0e98dac748f4c48e9f5ce8393d5aac1927db037f9670527f5140b845d3bc15f');
     }
   },
 
@@ -2714,6 +2717,7 @@ function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function reorder(arr,si,di){ const a=arr.findIndex(x=>x.id===si),b=arr.findIndex(x=>x.id===di); if(a<0||b<0)return; const[item]=arr.splice(a,1); arr.splice(b,0,item); }
 function fileIcon(n){ const e=(n||'').split('.').pop().toLowerCase(); return {pdf:'📄',xlsx:'📊',xls:'📊',pptx:'📑',ppt:'📑',docx:'📝',doc:'📝',zip:'🗜️','7z':'🗜️',rar:'🗜️'}[e]||'📎'; }
 function toast(msg,err){ let t=document.getElementById('_toast'); if(!t){t=document.createElement('div');t.id='_toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%);background:#333;color:#fff;font-size:13px;padding:10px 20px;border-radius:6px;z-index:999;opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none;';document.body.appendChild(t);} t.textContent=msg;t.style.background=err?'#cc4444':'#333';t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',2400); }
+
 
 
 
