@@ -467,14 +467,6 @@ const AUTH = {
 
   // 초기화: 저장된 인증 정보 없으면 기본값 해시 저장
   async init(){
-    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
-    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
-    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
-    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
-    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
-    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
-    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
-    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     if(!localStorage.getItem(this.ID_KEY)){
       localStorage.setItem(this.ID_KEY, this.DEFAULT_ID);
     }
@@ -2498,14 +2490,27 @@ function exportHtml(){
   // AUTH.check() — saveAll 등에서 사용하는 인증 체크도 초기에는 통과 안 되도록
   // (세션이 없으니 자동으로 false)
 
-  // ── 보안: localStorage 비밀번호 해시를 새 파일에서 재생성하도록 강제 ─
-  // AUTH.init()에서 ID_KEY/PW_KEY가 없으면 기본값으로 초기화하므로
-  // 저장된 파일은 별도 localStorage를 가짐 → 기본값(admin/1234)으로 초기화
-  // (이미 올바른 동작이나, 명시적으로 주석 추가)
-  newJsSrc=newJsSrc.replace(
-    "if(!localStorage.getItem(this.ID_KEY)){",
-    "// [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화\n    if(!localStorage.getItem(this.ID_KEY)){"
+  // ── 보안: 현재 변경된 비밀번호/ID를 export 파일에 포함 ─────────────
+  // localStorage에 저장된 현재 인증 정보(해시)를 읽어
+  // DEFAULT_ID / DEFAULT_PW(해시 직접 주입) 형태로 JS 소스에 반영
+  // → 비밀번호를 변경한 뒤 저장한 파일에서도 변경된 비밀번호가 유지됨
+  const exportedId = localStorage.getItem(AUTH.ID_KEY) || AUTH.DEFAULT_ID;
+  const exportedPwHash = localStorage.getItem(AUTH.PW_KEY);
+
+  // DEFAULT_ID 치환
+  newJsSrc = newJsSrc.replace(
+    /DEFAULT_ID:\s*'[^']*'/,
+    "DEFAULT_ID: '" + exportedId + "'"
   );
+
+  if(exportedPwHash){
+    // DEFAULT_PW를 해시값으로 대체하고, hash() 호출 대신 해시를 직접 저장하도록 init() 수정
+    // init() 내부의 PW 초기화 블록을 해시 직접 저장 방식으로 교체
+    newJsSrc = newJsSrc.replace(
+      /if\(!localStorage\.getItem\(this\.PW_KEY\)\)\s*\{[\s\S]*?localStorage\.setItem\(this\.PW_KEY,\s*await this\.hash\(this\.DEFAULT_PW\)\);[\s\S]*?\}/,
+      "if(!localStorage.getItem(this.PW_KEY)){\n      localStorage.setItem(this.PW_KEY, '" + exportedPwHash + "');\n    }"
+    );
+  }
 
   // 3. CSS + 정적 HTML 추출 (항상 초기/로그아웃 상태)
   const parts=_getStaticHtml();
