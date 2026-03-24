@@ -9,6 +9,7 @@
 
 
 
+
 @font-face{font-family:'SCDream1';src:url('/files/fonts/SCDream1.otf') format('opentype');font-weight:100;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream2';src:url('/files/fonts/SCDream2.otf') format('opentype');font-weight:200;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream3';src:url('/files/fonts/SCDream3.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap;}
@@ -318,6 +319,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 </style>
 </head>
 <body>
@@ -347,7 +349,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
     <label>아이디</label><input type="text" id="loginId" placeholder="admin">
     <label>비밀번호</label><input type="password" id="loginPw" onkeydown="if(event.key==='Enter')doLogin()">
     <button class="login-btn" onclick="doLogin()">로그인</button>
-    <div class="login-err" id="loginErr" style="">아이디 또는 비밀번호가 올바르지 않습니다.</div>
+    <div class="login-err" id="loginErr" style="">비밀번호가 틀렸습니다. (3회 남음)</div>
   </div>
 </div>
 <div class="modal-bg" id="editModal">
@@ -398,7 +400,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
   </div>
   <div class="psec panel-body" id="pt-sec">
     <div style="font-size:12px;font-weight:500;margin-bottom:12px;">비밀번호 변경</div>
-    <div id="pw-default-warn" style="display: none; padding: 8px 10px; background: rgb(255, 243, 205); border: 1px solid rgb(255, 193, 7); border-radius: 5px; font-size: 11px; color: rgb(133, 100, 4); margin-bottom: 12px; line-height: 1.6;">
+    <div id="pw-default-warn" style="display: block; padding: 8px 10px; background: rgb(255, 243, 205); border: 1px solid rgb(255, 193, 7); border-radius: 5px; font-size: 11px; color: rgb(133, 100, 4); margin-bottom: 12px; line-height: 1.6;">
       ⚠️ <strong>기본 비밀번호 사용 중</strong><br>반드시 변경하세요 (admin / 1234)
     </div>
     <div class="form-row"><label>현재 비밀번호</label><input type="password" id="sec-old" placeholder="현재 비밀번호"></div>
@@ -438,6 +440,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 const SKEY='pf_v6';
 
 /* ================================================================
@@ -464,6 +467,7 @@ const AUTH = {
 
   // 초기화: 저장된 인증 정보 없으면 기본값 해시 저장
   async init(){
+    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
@@ -617,7 +621,13 @@ const DEFAULT={
                   "items": [
                     {
                       "id": "db2vvr7",
-                      "files": [],
+                      "files": [
+                        {
+                          "id": "f_eyk2g7",
+                          "name": "경력기술서",
+                          "url": "files/pdf/Resume.pdf"
+                        }
+                      ],
                       "links": [],
                       "title": "공개용 경력 기술서",
                       "badge": "",
@@ -838,27 +848,15 @@ const DEFAULT={
                           "id": "f_cfqfkg",
                           "name": "던전앤파이터 던전 기획",
                           "url": "files/pdf/D&F Raid Protfolio.pdf"
-                        }
-                      ],
-                      "links": [],
-                      "title": "던전앤파이터 창작 던전 기획",
-                      "badge": "",
-                      "badgeClass": "badge-blue",
-                      "desc": "",
-                      "sub": "",
-                      "isNew": false
-                    },
-                    {
-                      "id": "dehprg4",
-                      "files": [
+                        },
                         {
-                          "id": "f_4hq833",
+                          "id": "f_p6kkvi",
                           "name": "던전앤파이터 보스 기획",
                           "url": "files/pdf/D&F Boss Protfolio.pdf"
                         }
                       ],
                       "links": [],
-                      "title": "던전앤파이터 창작 보스 기획",
+                      "title": "던전앤파이터 창작 기획",
                       "badge": "",
                       "badgeClass": "badge-blue",
                       "desc": "",
@@ -930,6 +928,57 @@ const DEFAULT={
                       "desc": "",
                       "sub": "",
                       "isNew": false
+                    },
+                    {
+                      "id": "d6c82z1",
+                      "files": [],
+                      "links": [
+                        {
+                          "id": "ehbu2j",
+                          "url": "https://drive.google.com/file/d/16bcwDyQGF1HuvALjYyDvbEulQW20lHM6/view?usp=drive_link",
+                          "label": "레벨디자인 툴"
+                        }
+                      ],
+                      "title": "AI R&D 레벨디자인",
+                      "badge": "",
+                      "badgeClass": "badge-blue",
+                      "desc": "",
+                      "sub": "",
+                      "isNew": true
+                    },
+                    {
+                      "id": "djixkqs",
+                      "files": [],
+                      "links": [
+                        {
+                          "id": "l80kie",
+                          "url": "https://drive.google.com/file/d/1VrqFWULLpGaSbjAa0_-OFgHfBmgW7QEN/view?usp=drive_link",
+                          "label": "행동AI와 LuaScript 제작 툴"
+                        }
+                      ],
+                      "title": "AI R&D 행동AI+LuaScript 툴",
+                      "badge": "",
+                      "badgeClass": "badge-blue",
+                      "desc": "",
+                      "sub": "",
+                      "isNew": true
+                    },
+                    {
+                      "id": "drq702o",
+                      "files": [
+                        {
+                          "id": "f_c1oeff",
+                          "name": "발주 문서 자동화 툴",
+                          "url": "https://drive.google.com/file/d/19ys7kpMD-LrDOX_TqctQhe2B_wekz4pr/view?usp=drive_link"
+                        }
+                      ],
+                      "links": [],
+                      "title": "AI R&D 발주 문서 자동화",
+                      "badge": "",
+                      "badgeClass": "badge-blue",
+                      "desc": "",
+                      "sub": "",
+                      "isNew": true
                     }
                   ]
                 }
@@ -2660,6 +2709,7 @@ function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function reorder(arr,si,di){ const a=arr.findIndex(x=>x.id===si),b=arr.findIndex(x=>x.id===di); if(a<0||b<0)return; const[item]=arr.splice(a,1); arr.splice(b,0,item); }
 function fileIcon(n){ const e=(n||'').split('.').pop().toLowerCase(); return {pdf:'📄',xlsx:'📊',xls:'📊',pptx:'📑',ppt:'📑',docx:'📝',doc:'📝',zip:'🗜️','7z':'🗜️',rar:'🗜️'}[e]||'📎'; }
 function toast(msg,err){ let t=document.getElementById('_toast'); if(!t){t=document.createElement('div');t.id='_toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%);background:#333;color:#fff;font-size:13px;padding:10px 20px;border-radius:6px;z-index:999;opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none;';document.body.appendChild(t);} t.textContent=msg;t.style.background=err?'#cc4444':'#333';t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',2400); }
+
 
 
 
