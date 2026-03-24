@@ -8,6 +8,7 @@
 <style>
 
 
+
 @font-face{font-family:'SCDream1';src:url('/files/fonts/SCDream1.otf') format('opentype');font-weight:100;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream2';src:url('/files/fonts/SCDream2.otf') format('opentype');font-weight:200;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream3';src:url('/files/fonts/SCDream3.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap;}
@@ -316,11 +317,12 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 </style>
 </head>
 <body>
 <div class="edit-banner">&#9999;&#65039; 편집 모드 &mdash; 텍스트 클릭으로 직접 수정 | 우측 패널에서 섹션 관리</div>
-<div class="fmt-popup" id="fmtPopup" style="top: 4827.09px; left: 793.719px;">
+<div class="fmt-popup" id="fmtPopup" style="top: 6174.59px; left: 318.586px;">
   <button class="rte-btn b" onmousedown="event.preventDefault();fmtExecNow('bold')">B</button>
   <button class="rte-btn i" onmousedown="event.preventDefault();fmtExecNow('italic')">I</button>
   <button class="rte-btn u" onmousedown="event.preventDefault();fmtExecNow('underline')">U</button>
@@ -354,7 +356,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
   </div>
 </div>
 <div class="confirm-modal" id="confirmModal">
-  <div class="confirm-box"><div class="confirm-msg" id="confirmMsg">이 행을 삭제할까요?</div>
+  <div class="confirm-box"><div class="confirm-msg" id="confirmMsg">이 항목을 삭제할까요?</div>
     <div class="confirm-acts"><button class="cbtn cancel" id="confirmCancel">닫기</button><button class="cbtn ok" id="confirmOk">삭제</button></div>
   </div>
 </div>
@@ -435,6 +437,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 const SKEY='pf_v6';
 
 /* ================================================================
@@ -461,6 +464,7 @@ const AUTH = {
 
   // 초기화: 저장된 인증 정보 없으면 기본값 해시 저장
   async init(){
+    // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
     // [EXPORT] 새 파일은 항상 기본 인증 정보로 초기화
@@ -641,7 +645,13 @@ const DEFAULT={
                     },
                     {
                       "id": "dozwy0h",
-                      "files": [],
+                      "files": [
+                        {
+                          "id": "f_m9skvg",
+                          "name": "학생 포트폴리오",
+                          "url": "files/pdf/Student Protfolio.pdf"
+                        }
+                      ],
                       "links": [],
                       "title": "게임 기획 지망생 포트폴리오",
                       "badge": "",
@@ -790,7 +800,13 @@ const DEFAULT={
                     {
                       "id": "dxek3od",
                       "files": [],
-                      "links": [],
+                      "links": [
+                        {
+                          "id": "x6dyk0",
+                          "url": "https://docs.google.com/spreadsheets/d/1GIWEguRxsf1jEZDaaw-ODhjOhl_3Axwp/edit?usp=drive_link&ouid=104083511515568598237&rtpof=true&sd=true",
+                          "label": "액션RPG 던전 기획"
+                        }
+                      ],
                       "title": "액션RPG 창작 던전 기획",
                       "badge": "",
                       "badgeClass": "badge-blue",
@@ -800,7 +816,13 @@ const DEFAULT={
                     },
                     {
                       "id": "dijfqoi",
-                      "files": [],
+                      "files": [
+                        {
+                          "id": "f_31a4bt",
+                          "name": "발로란트 어센트 역기획",
+                          "url": "files/excel/Valorant Ascent Protfolio.xlsb"
+                        }
+                      ],
                       "links": [],
                       "title": "발로란트 어센트 역기획",
                       "badge": "",
@@ -811,7 +833,13 @@ const DEFAULT={
                     },
                     {
                       "id": "dvequs3",
-                      "files": [],
+                      "files": [
+                        {
+                          "id": "f_cfqfkg",
+                          "name": "던전앤파이터 던전 기획",
+                          "url": "files/pdf/D&F Raid Protfolio.pdf"
+                        }
+                      ],
                       "links": [],
                       "title": "던전앤파이터 창작 던전 기획",
                       "badge": "",
@@ -822,7 +850,13 @@ const DEFAULT={
                     },
                     {
                       "id": "dehprg4",
-                      "files": [],
+                      "files": [
+                        {
+                          "id": "f_4hq833",
+                          "name": "던전앤파이터 보스 기획",
+                          "url": "files/pdf/D&F Boss Protfolio.pdf"
+                        }
+                      ],
                       "links": [],
                       "title": "던전앤파이터 창작 보스 기획",
                       "badge": "",
@@ -851,7 +885,13 @@ const DEFAULT={
                     {
                       "id": "dwnir1u",
                       "files": [],
-                      "links": [],
+                      "links": [
+                        {
+                          "id": "32r53q",
+                          "url": "https://www.youtube.com/watch?v=D5l2wCJh5Js",
+                          "label": "솔루나 플레이 영상"
+                        }
+                      ],
                       "title": "솔루나 (3D 퍼즐 게임)",
                       "badge": "",
                       "badgeClass": "badge-blue",
@@ -865,8 +905,35 @@ const DEFAULT={
             },
             {
               "id": "ddzg2r78",
-              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\">개인 R&amp;D [ 2021 ~ ]</span>",
-              "blocks": []
+              "title": "<span style=\"font-family: SCDream6; font-size: 24px;\">개인 R&amp;D [ 2023 ~ ]</span>",
+              "blocks": [
+                {
+                  "id": "bl7d33hn",
+                  "type": "docs",
+                  "dropdown": false,
+                  "ddTitle": "",
+                  "ddOpen": false,
+                  "items": [
+                    {
+                      "id": "do2w3c7",
+                      "files": [
+                        {
+                          "id": "f_aiyequ",
+                          "name": "나이트크로우 분석",
+                          "url": "files/pdf/Nightcrows Analysis.pdf"
+                        }
+                      ],
+                      "links": [],
+                      "title": "나이트크로우 분석",
+                      "badge": "",
+                      "badgeClass": "badge-blue",
+                      "desc": "",
+                      "sub": "",
+                      "isNew": false
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -931,7 +998,7 @@ const DEFAULT={
           "items": [
             {
               "id": "ddv30mpf",
-              "title": "<span style=\"font-family: SCDream6;\"><span style=\"font-size: 24px;\">맺음말</span></span>",
+              "title": "<span style=\"font-family: SCDream6;\"><span style=\"font-size: 24px;\"><span style=\"font-size: 28px;\"><span style=\"font-size: 24px;\">맺음말</span></span></span></span>",
               "blocks": [
                 {
                   "id": "blcgh1vu",
@@ -939,7 +1006,21 @@ const DEFAULT={
                   "dropdown": false,
                   "ddTitle": "",
                   "ddOpen": false,
-                  "html": "앞으로의 경험을 정리하기 위해 해당 웹사이트 제작<div>다른 목적은 아까 부족한 실력이지만,&nbsp;</div>"
+                  "html": "거의 3년 동안 회사를 다니며 성장하는 것보다 현재의 위치에 안주하고자 하는 마음이 더 컸던 것 같습니다. 그 동안 배움과 공부를 게을리하고 연구를 미뤄왔었지만, 다시 열정을 불태우고 싶어 이렇게 웹사이트를 제작하였습니다. 그리고 앞으로 제가 연구하는 모든 것들을 여기에 정리할 생각입니다. 저와 같은 길을 가는 어떤 누구라도 이 웹사이트를 보시게 되면 도움이 되시길 바랍니다. 누구보다 명확하고 철저한 플레이 흐름을 설계하여 유저에게 재미를 주는 그런 기획자가 되겠습니다. 감사합니다."
+                }
+              ]
+            },
+            {
+              "id": "ddrcmfv0",
+              "title": "<span style=\"font-size: 32px;\"><span style=\"font-size: 28px;\"><span style=\"font-family: SCDream6;\"><span style=\"font-size: 24px;\">주의사항</span></span></span></span>",
+              "blocks": [
+                {
+                  "id": "blsa47m9",
+                  "type": "text",
+                  "dropdown": false,
+                  "ddTitle": "",
+                  "ddOpen": false,
+                  "html": "<div>개인적인 공부 목적 외에 다른 곳에 자료 사용 시 작성자에게 이메일 또는 연락처로 허락 후 사용하시길 바랍니다. 회사 내 작업물은 임의로 값 또는 변수명을 변경하거나 AI를 활용하여 리터치를 진행하였습니다.</div>"
                 }
               ]
             }
@@ -2579,6 +2660,7 @@ function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function reorder(arr,si,di){ const a=arr.findIndex(x=>x.id===si),b=arr.findIndex(x=>x.id===di); if(a<0||b<0)return; const[item]=arr.splice(a,1); arr.splice(b,0,item); }
 function fileIcon(n){ const e=(n||'').split('.').pop().toLowerCase(); return {pdf:'📄',xlsx:'📊',xls:'📊',pptx:'📑',ppt:'📑',docx:'📝',doc:'📝',zip:'🗜️','7z':'🗜️',rar:'🗜️'}[e]||'📎'; }
 function toast(msg,err){ let t=document.getElementById('_toast'); if(!t){t=document.createElement('div');t.id='_toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%);background:#333;color:#fff;font-size:13px;padding:10px 20px;border-radius:6px;z-index:999;opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none;';document.body.appendChild(t);} t.textContent=msg;t.style.background=err?'#cc4444':'#333';t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',2400); }
+
 
 
 
