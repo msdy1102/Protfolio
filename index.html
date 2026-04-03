@@ -12,6 +12,7 @@
 
 
 
+
 @font-face{font-family:'SCDream1';src:url('/files/fonts/SCDream1.otf') format('opentype');font-weight:100;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream2';src:url('/files/fonts/SCDream2.otf') format('opentype');font-weight:200;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream3';src:url('/files/fonts/SCDream3.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap;}
@@ -324,6 +325,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 </style>
 </head>
 <body>
@@ -362,7 +364,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
   </div>
 </div>
 <div class="confirm-modal" id="confirmModal">
-  <div class="confirm-box"><div class="confirm-msg" id="confirmMsg">이 링크를 삭제할까요?</div>
+  <div class="confirm-box"><div class="confirm-msg" id="confirmMsg">이 블록을 삭제할까요?</div>
     <div class="confirm-acts"><button class="cbtn cancel" id="confirmCancel">닫기</button><button class="cbtn ok" id="confirmOk">삭제</button></div>
   </div>
 </div>
@@ -437,6 +439,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 <main id="main"></main>
 <footer><div class="wrap" id="footer-txt"></div></footer>
 <script id="__main_js__">
+
 
 
 
@@ -565,9 +568,9 @@ const AUTH = {
 const DEFAULT={
   "header": {
     "name": "김민석",
-    "sub": "",
-    "phone": "01041466790",
-    "email": "zntk6602@naver.com"
+    "sub": "01041466790",
+    "phone": "zntk6602@naver.com",
+    "email": "Last Update : 2026-04-03"
   },
   "sections": [
     {
@@ -713,7 +716,7 @@ const DEFAULT={
                   "type": "docs",
                   "dropdown": true,
                   "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\">해당 프로젝트 포트폴리오</span>",
-                  "ddOpen": false,
+                  "ddOpen": true,
                   "items": [
                     {
                       "id": "d84whwa",
@@ -728,7 +731,7 @@ const DEFAULT={
                       "title": "동굴 던전 레벨 기획",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
+                      "desc": "동굴 지형의 초반부 던전 레벨 기획",
                       "sub": "",
                       "isNew": true
                     },
@@ -745,7 +748,7 @@ const DEFAULT={
                       "title": "인터렉션 시스템",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
+                      "desc": "인터렉션을 진행하는 흐름 및 출력 UI 설계",
                       "sub": "",
                       "isNew": false
                     },
@@ -762,7 +765,7 @@ const DEFAULT={
                       "title": "기믹 시스템",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
+                      "desc": "기믹 발동 조건/액션을 정리하고 통합적으로 관리하기 위한 설계",
                       "sub": "",
                       "isNew": false
                     }
@@ -781,8 +784,8 @@ const DEFAULT={
                   "type": "text",
                   "dropdown": true,
                   "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\">해당 프로젝트 업무 이력</span>",
-                  "ddOpen": false,
-                  "html": "<font face=\"SCDream5\"><span style=\"font-size: 18px;\"><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream4;\">[레벨 기획]</span></span></span></font><div><font face=\"SCDream3\" color=\"#888888\">ㄴ MMORPG</font><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 사막&amp;황무지 환경 필드 레벨 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 다수 유저가 참여하는 스케줄러 던전 레벨 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 4인 참여 던전 레벨 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 필드 몬스터 배치 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 액션RPG</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 동굴 환경 필드 레벨 기획</font></div></div><div><font face=\"SCDream3\" color=\"#888888\"><br></font></div><div><font face=\"SCDream3\"><font color=\"#1a1a1a\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\">[시스템 기획]</span></span></font></font></div><div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ MMORPG</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 인터렉션 시스템</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 기믹 시스템</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 룩앳 시스템</font></div></div><div><font face=\"SCDream3\" color=\"#888888\"><br></font></div><div><font face=\"SCDream3\"><font color=\"#1a1a1a\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\">[기타 작업]</span></span></font></font></div><div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 편의성 툴 제작 지원 (콜리전 에디터Tool)</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 몬스터 배치 및 데이터 작업</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ Prob AnimBP 제작</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 리소스 발주 문서 작성 및 리스트 관리</font></div></div><div><font color=\"#888888\" face=\"SCDream3\">ㄴ AI R&amp;D (발주 문서 자동화, 초안 작성, 레벨Tool 제작)</font></div>"
+                  "ddOpen": true,
+                  "html": "<font face=\"SCDream5\"><span style=\"font-size: 18px;\"><span style=\"font-size: 16px;\"><span style=\"font-family: SCDream4;\">[레벨 기획]</span></span></span></font><div><font face=\"SCDream3\" color=\"#888888\">ㄴ MMORPG</font><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 사막&amp;황무지 환경 필드 레벨 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 다수 유저가 참여하는 스케줄러 던전 레벨 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 4인 참여 던전 레벨 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 필드 몬스터 배치 기획</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 액션RPG</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 동굴 환경 던전 레벨 기획</font></div></div><div><font face=\"SCDream3\" color=\"#888888\"><br></font></div><div><font face=\"SCDream3\"><font color=\"#1a1a1a\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\">[시스템 기획]</span></span></font></font></div><div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ MMORPG</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 인터렉션 시스템</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 기믹 시스템</font></div><div><font face=\"SCDream3\" color=\"#888888\">&nbsp; &nbsp; - 룩앳 시스템</font></div></div><div><font face=\"SCDream3\" color=\"#888888\"><br></font></div><div><font face=\"SCDream3\"><font color=\"#1a1a1a\"><span style=\"font-family: SCDream4;\"><span style=\"font-size: 16px;\">[기타 작업]</span></span></font></font></div><div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 편의성 툴 제작 지원 (콜리전 에디터Tool)</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 몬스터 배치 및 데이터 작업</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ Prob AnimBP 제작</font></div><div><font face=\"SCDream3\" color=\"#888888\">ㄴ 리소스 발주 문서 작성 및 리스트 관리</font></div></div><div><font color=\"#888888\" face=\"SCDream3\">ㄴ AI R&amp;D (발주 문서 자동화, 초안 작성, 레벨Tool 제작)</font></div>"
                 }
               ]
             },
@@ -823,7 +826,7 @@ const DEFAULT={
                       "title": "액션RPG 창작 던전 기획",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
+                      "desc": "가상 액션RPG 게임의 창작 던전 기획",
                       "sub": "",
                       "isNew": false
                     },
@@ -840,7 +843,7 @@ const DEFAULT={
                       "title": "발로란트 어센트 역기획",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
+                      "desc": "발로란트 어센트 레벨 역기획",
                       "sub": "",
                       "isNew": false
                     },
@@ -862,7 +865,7 @@ const DEFAULT={
                       "title": "던전앤파이터 창작 기획",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
+                      "desc": "던전앤파이터 디레지에 관련 레이드 기획",
                       "sub": "",
                       "isNew": false
                     }
@@ -897,7 +900,7 @@ const DEFAULT={
                       "badge": "",
                       "badgeClass": "badge-blue",
                       "desc": "Unity 기반 3D 퍼즐 게임 팀원으로 프로젝트 진행",
-                      "sub": "",
+                      "sub": "[2022]",
                       "isNew": false
                     }
                   ]
@@ -912,25 +915,42 @@ const DEFAULT={
                   "id": "bl7d33hn",
                   "type": "docs",
                   "dropdown": false,
-                  "ddTitle": "",
+                  "ddTitle": "관련 문서",
                   "ddOpen": false,
                   "items": [
                     {
-                      "id": "do2w3c7",
-                      "files": [
+                      "id": "dli4tud",
+                      "files": [],
+                      "links": [
                         {
-                          "id": "f_aiyequ",
-                          "name": "나이트크로우 분석",
-                          "url": "files/pdf/Nightcrows Analysis.pdf"
+                          "id": "552ylv",
+                          "url": "https://onbyun.vercel.app/",
+                          "label": "온변 웹사이트"
                         }
                       ],
-                      "links": [],
-                      "title": "나이트크로우 분석",
+                      "title": "AI 활용 : 계약서 주의사항 웹사이트",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
-                      "sub": "",
-                      "isNew": false
+                      "desc": "계약서 주의사항 정보성 웹사이트. AI를 활용하여 계약서 분석.",
+                      "sub": "[2026 ~]",
+                      "isNew": true
+                    },
+                    {
+                      "id": "dw3k8ek",
+                      "files": [],
+                      "links": [
+                        {
+                          "id": "ahn07i",
+                          "url": "https://moveiq.vercel.app/",
+                          "label": "무브IQ 웹사이트"
+                        }
+                      ],
+                      "title": "AI 활용 : 부동산 입지-소음 분석 웹사이트",
+                      "badge": "",
+                      "badgeClass": "badge-blue",
+                      "desc": "부동산 입지 분석 AI 활용과 소음 지도를 구성하여 이사하는 사용자들에게 도움이 되기 위한 웹사이트.",
+                      "sub": "[2026 ~]",
+                      "isNew": true
                     },
                     {
                       "id": "d6c82z1",
@@ -947,11 +967,11 @@ const DEFAULT={
                           "label": "네이버 MYBOX"
                         }
                       ],
-                      "title": "AI R&D 레벨디자인 툴",
+                      "title": "AI R&D : 레벨디자인 툴",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
-                      "sub": "",
+                      "desc": "Tool에서 레벨디자인 초안을 손쉽게 제작할 수 있도록 R&D",
+                      "sub": "[2026]",
                       "isNew": true
                     },
                     {
@@ -969,11 +989,11 @@ const DEFAULT={
                           "label": "네이버 MYBOX"
                         }
                       ],
-                      "title": "AI R&D 행동AI+LuaScript 툴",
+                      "title": "AI R&D : 행동AI+LuaScript 툴",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
-                      "sub": "",
+                      "desc": "오픈월드에서 동물(NPC)의 행동들을 정의한 AI R&D",
+                      "sub": "[2026]",
                       "isNew": true
                     },
                     {
@@ -991,12 +1011,29 @@ const DEFAULT={
                           "label": "네이버 MYBOX"
                         }
                       ],
-                      "title": "AI R&D 발주 문서 자동화",
+                      "title": "AI R&D : 발주 문서 자동화",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "",
-                      "sub": "",
+                      "desc": "리소스 발주 문서를 AI로 자동화하기 위한 R&D",
+                      "sub": "[2026]",
                       "isNew": true
+                    },
+                    {
+                      "id": "do2w3c7",
+                      "files": [
+                        {
+                          "id": "f_aiyequ",
+                          "name": "나이트크로우 분석",
+                          "url": "files/pdf/Nightcrows Analysis.pdf"
+                        }
+                      ],
+                      "links": [],
+                      "title": "나이트크로우 분석",
+                      "badge": "",
+                      "badgeClass": "badge-blue",
+                      "desc": "나이트크로우 게임 분석 및 제안",
+                      "sub": "[2023]",
+                      "isNew": false
                     }
                   ]
                 }
@@ -2740,6 +2777,7 @@ function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function reorder(arr,si,di){ const a=arr.findIndex(x=>x.id===si),b=arr.findIndex(x=>x.id===di); if(a<0||b<0)return; const[item]=arr.splice(a,1); arr.splice(b,0,item); }
 function fileIcon(n){ const e=(n||'').split('.').pop().toLowerCase(); return {pdf:'📄',xlsx:'📊',xls:'📊',pptx:'📑',ppt:'📑',docx:'📝',doc:'📝',zip:'🗜️','7z':'🗜️',rar:'🗜️'}[e]||'📎'; }
 function toast(msg,err){ let t=document.getElementById('_toast'); if(!t){t=document.createElement('div');t.id='_toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%);background:#333;color:#fff;font-size:13px;padding:10px 20px;border-radius:6px;z-index:999;opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none;';document.body.appendChild(t);} t.textContent=msg;t.style.background=err?'#cc4444':'#333';t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',2400); }
+
 
 
 
