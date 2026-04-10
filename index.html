@@ -332,7 +332,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 </head>
 <body>
 <div class="edit-banner">&#9999;&#65039; 편집 모드 &mdash; 텍스트 클릭으로 직접 수정 | 우측 패널에서 섹션 관리</div>
-<div class="fmt-popup" id="fmtPopup" style="top: 6457.09px; left: 334.445px;">
+<div class="fmt-popup" id="fmtPopup" style="top: 6357.09px; left: 334.445px;">
   <button class="rte-btn b" onmousedown="event.preventDefault();fmtExecNow('bold')">B</button>
   <button class="rte-btn i" onmousedown="event.preventDefault();fmtExecNow('italic')">I</button>
   <button class="rte-btn u" onmousedown="event.preventDefault();fmtExecNow('underline')">U</button>
@@ -366,7 +366,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
   </div>
 </div>
 <div class="confirm-modal" id="confirmModal">
-  <div class="confirm-box"><div class="confirm-msg" id="confirmMsg">이 링크를 삭제할까요?</div>
+  <div class="confirm-box"><div class="confirm-msg" id="confirmMsg">이 항목을 삭제할까요?</div>
     <div class="confirm-acts"><button class="cbtn cancel" id="confirmCancel">닫기</button><button class="cbtn ok" id="confirmOk">삭제</button></div>
   </div>
 </div>
@@ -919,7 +919,7 @@ const DEFAULT={
                   "type": "docs",
                   "dropdown": true,
                   "ddTitle": "<span style=\"font-family: SCDream5;\"><span style=\"font-size: 24px;\"><span style=\"font-size: 18px;\">AI R&amp;D</span></span></span>",
-                  "ddOpen": true,
+                  "ddOpen": false,
                   "items": [
                     {
                       "id": "dli4tud",
@@ -1022,30 +1022,24 @@ const DEFAULT={
                       "isNew": true
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "id": "ddca19w1",
-              "title": "<span style=\"font-family: SCDream5;\"><span style=\"font-size: 18px;\">분석 및 제안</span></span>",
-              "blocks": [
+                },
                 {
-                  "id": "bl4q3xny",
+                  "id": "blsh4j26",
                   "type": "docs",
-                  "dropdown": false,
-                  "ddTitle": "",
+                  "dropdown": true,
+                  "ddTitle": "<span style=\"font-family: SCDream5;\"><span style=\"font-size: 18px;\">분석 및 제안</span></span>",
                   "ddOpen": false,
                   "items": [
                     {
-                      "id": "djdstnz",
+                      "id": "ddbzggy",
                       "files": [
                         {
-                          "id": "f_6hvpbn",
+                          "id": "f_lz3hd3",
                           "name": "스텔라블레이드 분석",
                           "url": "files/pdf/StellarBlade Analysis.pdf"
                         },
                         {
-                          "id": "f_eycwwn",
+                          "id": "f_h2tpsr",
                           "name": "스텔라블레이드 레벨 제안",
                           "url": "files/excel/StellarBlade LevelProposal.xlsx"
                         }
@@ -1059,11 +1053,11 @@ const DEFAULT={
                       "isNew": true
                     },
                     {
-                      "id": "db8dfmi",
+                      "id": "dltteg8",
                       "files": [
                         {
-                          "id": "f_glb659",
-                          "name": "나이트크로우 분석",
+                          "id": "f_qrw2d6",
+                          "name": "나이트크로우 분석 및 제안",
                           "url": "files/pdf/Nightcrows Analysis.pdf"
                         }
                       ],
@@ -1071,7 +1065,7 @@ const DEFAULT={
                       "title": "나이트크로우",
                       "badge": "",
                       "badgeClass": "badge-blue",
-                      "desc": "나이트크로우 게임 분석 및 제안",
+                      "desc": "나이트크로우 분석 및 제안",
                       "sub": "[2023]",
                       "isNew": false
                     }
