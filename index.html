@@ -14,6 +14,7 @@
 
 
 
+
 @font-face{font-family:'SCDream1';src:url('/files/fonts/SCDream1.otf') format('opentype');font-weight:100;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream2';src:url('/files/fonts/SCDream2.otf') format('opentype');font-weight:200;font-style:normal;font-display:swap;}
 @font-face{font-family:'SCDream3';src:url('/files/fonts/SCDream3.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap;}
@@ -328,6 +329,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 
 
 
+
 </style>
 </head>
 <body>
@@ -441,6 +443,7 @@ footer{padding:28px 0;font-size:12px;color:#ccc;}
 <main id="main"></main>
 <footer><div class="wrap" id="footer-txt"></div></footer>
 <script id="__main_js__">
+
 
 
 
@@ -573,7 +576,7 @@ const DEFAULT={
     "name": "김민석",
     "sub": "01041466790",
     "phone": "zntk6602@naver.com",
-    "email": "Last Update : 2026-04-03"
+    "email": "Last Update : 2026-04-10"
   },
   "sections": [
     {
@@ -809,7 +812,7 @@ const DEFAULT={
                   "type": "docs",
                   "dropdown": true,
                   "ddTitle": "<span style=\"font-family: SCDream5; font-size: 18px;\">재학중 작성한 포트폴리오</span>",
-                  "ddOpen": true,
+                  "ddOpen": false,
                   "items": [
                     {
                       "id": "dxek3od",
@@ -2811,6 +2814,7 @@ function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function reorder(arr,si,di){ const a=arr.findIndex(x=>x.id===si),b=arr.findIndex(x=>x.id===di); if(a<0||b<0)return; const[item]=arr.splice(a,1); arr.splice(b,0,item); }
 function fileIcon(n){ const e=(n||'').split('.').pop().toLowerCase(); return {pdf:'📄',xlsx:'📊',xls:'📊',pptx:'📑',ppt:'📑',docx:'📝',doc:'📝',zip:'🗜️','7z':'🗜️',rar:'🗜️'}[e]||'📎'; }
 function toast(msg,err){ let t=document.getElementById('_toast'); if(!t){t=document.createElement('div');t.id='_toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%);background:#333;color:#fff;font-size:13px;padding:10px 20px;border-radius:6px;z-index:999;opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none;';document.body.appendChild(t);} t.textContent=msg;t.style.background=err?'#cc4444':'#333';t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',2400); }
+
 
 
 
